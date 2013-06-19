@@ -14,6 +14,10 @@ module Jsch
         channel.get(remote_filepath, local_filepath)
       end
 
+      def upload!(local_filepath, remote_filepath)
+        channel.put(local_filepath, remote_filepath)
+      end
+
       def disconnect
         if connected?
           channel.disconnect rescue nil

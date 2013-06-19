@@ -17,6 +17,10 @@ module Jsch
         channel.download!(remote_filepath, local_filepath)
       end
 
+      def upload!(local_filepath, remote_filepath)
+        channel.upload!(local_filepath, remote_filepath)
+      end
+
       def disconnect
         channel.disconnect unless channel.nil?
 
