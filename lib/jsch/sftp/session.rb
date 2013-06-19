@@ -17,6 +17,10 @@ module Jsch
         channel.download!(remote_filepath, local_filepath)
       end
 
+      def entries(remote_path)
+        channel.entries(remote_path)
+      end
+
       def upload!(local_filepath, remote_filepath)
         channel.upload!(local_filepath, remote_filepath)
       end
@@ -41,13 +45,12 @@ module Jsch
 
       private
 
+      attr_reader :session
+
       def self.configure(session, options)
         session.set_password(options[:password]) if options.key?(:password)
         session.set_config("StrictHostKeyChecking", "no")
       end
-
-      attr_reader :session
-
     end
   end
 end

@@ -1,5 +1,6 @@
 require_relative '../../../lib/jsch/init'
 require_relative '../../../lib/jsch/sftp'
+require 'fileutils'
 require 'tmpdir'
 
 describe Jsch::SFTP do
@@ -37,6 +38,21 @@ describe Jsch::SFTP do
       end
 
       File.exists?(remote_file).should be_true
+    end
+  end
+
+  context "listing the contents of a remote directory" do
+    it "should return a list of the entries in the remote directory" do
+      FileUtils.touch(File.join(@destdir, 'empty1.txt'))
+      FileUtils.touch(File.join(@destdir, 'empty2.txt'))
+      names = []
+
+      described_class.start(host, user, identity: @identity) do |sftp|
+        sftp.entries(@destdir).each { |f| names << f.name }
+      end
+
+      names.should be_include('empty1.txt')
+      names.should be_include('empty2.txt')
     end
   end
 end

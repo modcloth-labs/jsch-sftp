@@ -1,3 +1,5 @@
+require_relative 'entry'
+
 module Jsch
   module SFTP
     class Channel
@@ -18,6 +20,10 @@ module Jsch
         channel.put(local_filepath, remote_filepath)
       end
 
+      def entries(remote_path)
+        to_entries(channel.ls(remote_path))
+      end
+
       def disconnect
         if connected?
           channel.disconnect rescue nil
@@ -35,6 +41,13 @@ module Jsch
 
       attr_reader :channel
 
+      def to_entries(entries)
+        entries.map { |e| to_entry(e) }
+      end
+
+      def to_entry(entry)
+        Entry.new(entry.filename)
+      end
     end
   end
 end
