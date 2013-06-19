@@ -9,5 +9,5 @@ end
 
 task :default => :spec
 
-load 'jsch.gemspec'
+load 'jsch-sftp.gemspec'
 
