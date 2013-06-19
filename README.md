@@ -1,4 +1,4 @@
-# jsch
+# jsch-sftp
 
 A simple jruby wrapper around the Jsch library.
 
@@ -6,13 +6,9 @@ A simple jruby wrapper around the Jsch library.
 
 Add this line to your application's Gemfile:
 
-    gem 'jsch' execute:
+    gem 'jsch-sftp' execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install jsch
 
 ## Usage
 
