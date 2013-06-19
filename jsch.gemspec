@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'jsch/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "jsch"
+  gem.name          = "jsch-sftp"
   gem.version       = Jsch::VERSION
   gem.authors       = ['Pat Bair']
   gem.email         = ['bi+jsch@modcloth.com']
