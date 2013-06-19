@@ -9,5 +9,5 @@ end
 
 task :default => :spec
 
-load 'commons-compress.gemspec'
+load 'jsch.gemspec'
 
