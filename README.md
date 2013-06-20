@@ -6,13 +6,27 @@ A simple jruby wrapper around the Jsch library.
 
 Add this line to your application's Gemfile:
 
-    gem 'jsch-sftp' execute:
+    gem 'jsch-sftp', github: 'modcloth-labs/jsch-sftp'
+
+then execute:
 
     $ bundle
 
 ## Usage
 
-TODO
+```
+require 'jsch'
+require 'jsch/sftp'
+
+Jsch::SFTP.start('host', 'user', identity: '/path/to/keyfile') do |sftp|
+  sftp.entries('/').each do |entry|
+    puts entry.name
+  end
+
+  sftp.upload!('/path/to/local', '/path/to/remote')
+  sftp.download!('/path/to/remote', '/path/to/local')
+end
+```
 
 ## Contributing
 
