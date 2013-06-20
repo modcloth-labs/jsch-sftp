@@ -1,6 +1,6 @@
 # jsch-sftp
 
-A simple jruby wrapper around the Jsch library.
+A simple JRuby wrapper around the Java [JSch](http://www.jcraft.com/jsch/) library.
 
 ## Installation
 
