@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - jruby-19mode
+before_script:
+  - if [ ! -e ~/.ssh/id_rsa ]; then ssh-keygen -f ~/.ssh/id_rsa -N ''; fi
+  - cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+notifications:
+  email:
+    recipients:
+      - p.bair@modcloth.com
