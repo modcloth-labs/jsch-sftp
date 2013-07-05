@@ -1,5 +1,7 @@
 # jsch-sftp
 
+[![Build Status](https://travis-ci.org/modcloth-labs/jsch-sftp.png?branch=master)](https://travis-ci.org/modcloth-labs/jsch-sftp)
+
 A simple JRuby wrapper around the Java [JSch](http://www.jcraft.com/jsch/) library.
 
 ## Installation
