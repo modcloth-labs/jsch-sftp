@@ -55,4 +55,17 @@ describe Jsch::SFTP do
       names.should be_include('empty2.txt')
     end
   end
+
+  context "making a remote directory" do
+    it "should create the specified directory on the remote server" do
+      remote_dir = File.join(@destdir, 'test_dir')
+
+      described_class.start(host, user, identity: @identity) do |sftp|
+        sftp.mkdir(remote_dir)
+      end
+
+      File.exists?(remote_dir).should be_true
+      File.directory?(remote_dir).should be_true
+    end
+  end
 end

@@ -25,6 +25,10 @@ module Jsch
         channel.upload!(local_filepath, remote_filepath)
       end
 
+      def mkdir(remote_path)
+        channel.mkdir(remote_path)
+      end
+
       def disconnect
         channel.disconnect unless channel.nil?
 

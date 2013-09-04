@@ -20,6 +20,10 @@ module Jsch
         channel.put(local_filepath, remote_filepath)
       end
 
+      def mkdir(remote_path)
+        channel.mkdir(remote_path)
+      end
+
       def entries(remote_path)
         to_entries(channel.ls(remote_path))
       end
